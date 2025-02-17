@@ -1,12 +1,22 @@
+@font-face {
+  font-display: swap;
+  font-family: 'Supply';
+  font-weight: 400;
+  src: url('supply.woff2') format('woff2');
+  /* Remove unicode-range temporarily */
+}
 body {
-  font-family: sans-serif;
   background: #242424;
   margin: 0;
   touch-action: manipulation;
+  font-family: 'Supply', monospace;
+  font-weight: 400;
 }
 
 .grid {
   display: grid;
+  font-family: 'Supply', monospace;
+  font-weight: 400;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   gap: 1rem;
   max-width: 60rem;
@@ -19,13 +29,15 @@ body {
 .grid button {
   width: 100%;
   box-sizing: border-box;
-  padding: 20px;
+  padding-block-start: 0.5rem;
+  padding-block-end: 1rem;
+  padding-inline: 0.5rem;
   font-size: 16px;
-  font-weight: 800;
-  border: none;
-  background-color: #007bff;
-  color: #fff;
-  border-radius: 1rem;
+  font-weight: 400;
+  border: 2px solid black;
+  background-image: radial-gradient(100% 100% at 100% 0, #e5633e 0, #cf4116 100%);  color: #fff;
+  border-radius: 0.7rem;
+  box-shadow: 0 .5ch .6ch rgba(0, 0, 0, 0.5), inset 0 -0.5rem 0 rgba(145, 47, 2, 0.9);
   cursor: pointer;
   transition: background-color 0.2s;
 }

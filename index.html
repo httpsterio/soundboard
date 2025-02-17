@@ -8,12 +8,24 @@
   <link rel="icon" type="image/x-icon" href="icons/192.png">
   <link rel="apple-touch-icon" href="icons/192.png">
   <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="manifest" href="manifest.json">
 </head>
 <body>
   <div class="grid" id="grid"></div>
 
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js')
+        .then(function(registration) {
+          console.log('Service Worker registered with scope:', registration.scope);
+        })
+        .catch(function(error) {
+          console.error('Service Worker registration failed:', error);
+        });
+    }
+  </script>
   <script src="main.js"></script>
 </body>
 </html>
