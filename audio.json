@@ -1,0 +1,40 @@
+{ "audio":
+  [
+    {
+      "file": "audio/jsr.mp3",
+      "type": "oneshot",
+      "name": "JSR Spin"
+    },
+    {
+      "file": "audio/maxwell.mp3",
+      "type": "loop",
+      "name": "Maxwell the Cat",
+      "loopStart": 0.02,
+      "loopEnd": 14.35
+    },
+    {
+      "file": "audio/cats (speed).mp3",
+      "type": "loop",
+      "name": "Cats (Speed)",
+      "loopStart": 0.03,
+      "loopEnd": 30.99
+    },
+    {
+      "file": "audio/distorted cat.mp3",
+      "type": "loop",
+      "name": "Distorted Cat",
+      "loopStart": 0.53,
+      "loopEnd": 11.78
+    },
+    {
+      "file": "audio/ooiiaa fast.mp3",
+      "type": "oneshot",
+      "name": "OOIIAA Fast"
+    },
+    {
+      "file": "audio/ooiiaa slow.mp3",
+      "type": "oneshot",
+      "name": "OOIIAA Slow"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+body {
+  font-family: sans-serif;
+  background: #242424;
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1rem;
+  max-width: 60rem;
+  margin-inline: auto;
+  padding-inline: 2rem;
+  margin-block-start: 1rem;
+  justify-items: center; /* centers items horizontally */
+}
+
+.grid button {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  font-size: 16px;
+  font-weight: 800;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.grid button:hover,
+.grid button:active {
+  background-color: #ff9900; /* A green color, for example */
+}
+
+.grid button.active {
+  background-color: #00a035; /* A green color, for example */
+}
