@@ -3,12 +3,14 @@
     {
       "file": "audio/jsr.mp3",
       "type": "oneshot",
-      "name": "JSR Spin"
+      "name": "JSR Spin",
+      "special": "spin"
     },
     {
       "file": "audio/maxwell.mp3",
       "type": "loop",
       "name": "Maxwell the Cat",
+      "special": "maxwell",
       "loopStart": 0.02,
       "loopEnd": 14.35
     },
@@ -29,12 +31,14 @@
     {
       "file": "audio/ooiiaa fast.mp3",
       "type": "oneshot",
-      "name": "OOIIAA Fast"
+      "name": "OOIIAA Fast",
+      "special": "ooiiaa-fast"
     },
     {
       "file": "audio/ooiiaa slow.mp3",
       "type": "oneshot",
-      "name": "OOIIAA Slow"
+      "name": "OOIIAA Slow",
+      "special": "ooiiaa-slow"
     }
   ]
 }

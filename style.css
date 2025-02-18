@@ -1,52 +1,127 @@
 @font-face {
-  font-display: swap;
-  font-family: 'Supply';
-  font-weight: 400;
-  src: url('supply.woff2') format('woff2');
-  /* Remove unicode-range temporarily */
+    font-family: "Supply";
+    src: url("supply.woff2");
+    font-weight: 100 800;
+    unicode-range: U+0020-007E, U+00A0-00A9, U+00AB-00AC, U+00AE-00B1,
+        U+00B4, U+00B6-00B8, U+00BB, U+00BF-00EF, U+00F1-0107, U+010A-0113,
+        U+0116-011B, U+011E-0123, U+0126-0127, U+012A-012B, U+012E-0131,
+        U+0136-0137, U+0139-013E, U+0141-0148, U+014A-014D, U+0150-015B,
+        U+015E-0167, U+016A-016B, U+016E-017E, U+0218-021B, U+02C6-02C7,
+        U+02D8-02DD, U+0300-0304, U+0306-0308, U+030A-030C, U+0312,
+        U+0326-0328, U+0335-0338, U+1E80-1E85, U+1EF2-1EF3, U+2013-2014,
+        U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A,
+        U+2044, U+20AC, U+2122, U+2190-2199, U+2202, U+2205, U+220F,
+        U+2211-2212, U+221A, U+221E, U+222B, U+2248, U+2260, U+2264-2265,
+        U+25CA;
 }
+
 body {
   background: #242424;
   margin: 0;
   touch-action: manipulation;
-  font-family: 'Supply', monospace;
-  font-weight: 400;
+}
+
+* {
+  transition: all 0.2s;
 }
 
 .grid {
   display: grid;
-  font-family: 'Supply', monospace;
-  font-weight: 400;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
   gap: 1rem;
   max-width: 60rem;
   margin-inline: auto;
   padding-inline: 2rem;
-  margin-block-start: 1rem;
+  margin-block-start: 2.5rem;
   justify-items: center; /* centers items horizontally */
 }
 
 .grid button {
   width: 100%;
+  height:6rem;
   box-sizing: border-box;
   padding-block-start: 0.5rem;
   padding-block-end: 1rem;
   padding-inline: 0.5rem;
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 1.5rem;
+  font-family: "Supply";
+  font-weight: 500;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
   border: 2px solid black;
   background-image: radial-gradient(100% 100% at 100% 0, #e5633e 0, #cf4116 100%);  color: #fff;
   border-radius: 0.7rem;
-  box-shadow: 0 .5ch .6ch rgba(0, 0, 0, 0.5), inset 0 -0.5rem 0 rgba(145, 47, 2, 0.9);
+  box-shadow: 0 .5ch .6ch rgba(0, 0, 0, 0.5), inset 0 -0.7rem 0 rgba(145, 47, 2, 0.9);
   cursor: pointer;
-  transition: background-color 0.2s;
 }
 
 .grid button:hover,
-.grid button:active {
-  background-color: #ff9900; /* A green color, for example */
+.grid button:active,
+.grid button.active {
+  width: 100%;
+  height:5rem;
+  box-sizing: border-box;
+  margin-block-start: 1rem;
+  padding-block-start: 0.8rem;
+  padding-block-end: 0.7rem;
+  padding-inline: 0.5rem;
+  font-size: 1.5rem;
+  font-family: "Supply";
+  font-weight: 500;
+  text-shadow: 1px 1px 1px rgb(255, 255, 255);
+  border: 2px solid black;
+  background-image: radial-gradient(100% 100% at 100% 0, #ffd902 0, #ec821e 100%);  color: #131313;
+  border-radius: 0.7rem;
+  box-shadow: 0 .5ch .6ch rgba(0, 0, 0, 0.5), inset 0 -0.3rem 0 rgba(145, 47, 2, 0.9);
+  cursor: pointer;
 }
 
-.grid button.active {
-  background-color: #00a035; /* A green color, for example */
+/* animations */
+
+/* JSR Spin */
+@keyframes spinButton {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spinButton 0.6s ease;
+}
+
+/* Maxwell animation */
+
+@keyframes maxwellStart {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(30deg);
+  }
+}
+
+@keyframes maxwellLoop {
+  0% {
+    transform: rotate(30deg);
+  }
+  25% {
+    transform: rotate(-30deg);
+  }
+  50% {
+    transform: rotate(30deg);
+  }
+  75% {
+    transform: rotate(-30deg);
+  }
+  100% {
+    transform: rotate(30deg);
+  }
+}
+
+.animate-maxwell-loop {
+  animation: 
+    maxwellStart 0.22s ease forwards,
+    maxwellLoop 1.79s 0.22s ease infinite;
 }
