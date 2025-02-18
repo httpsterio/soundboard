@@ -27,23 +27,23 @@ body {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
   gap: 1rem;
   max-width: 60rem;
   margin-inline: auto;
-  padding-inline: 2rem;
+  padding-inline: 1rem;
   margin-block-start: 2.5rem;
   justify-items: center; /* centers items horizontally */
 }
 
 .grid button {
   width: 100%;
-  height:6rem;
+  height:5rem;
   box-sizing: border-box;
   padding-block-start: 0.5rem;
   padding-block-end: 1rem;
   padding-inline: 0.5rem;
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   font-family: "Supply";
   font-weight: 500;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
@@ -58,18 +58,15 @@ body {
 .grid button:active,
 .grid button.active {
   width: 100%;
-  height:5rem;
+  height:4rem;
   box-sizing: border-box;
   margin-block-start: 1rem;
-  padding-block-start: 0.8rem;
+  padding-block-start: 0.5rem;
   padding-block-end: 0.7rem;
   padding-inline: 0.5rem;
-  font-size: 1.5rem;
-  font-family: "Supply";
-  font-weight: 500;
-  text-shadow: 1px 1px 1px rgb(255, 255, 255);
+  text-shadow: 1px 1px 1px rgb(0, 0, 0);
   border: 2px solid black;
-  background-image: radial-gradient(100% 100% at 100% 0, #ffd902 0, #ec821e 100%);  color: #131313;
+  background-image: radial-gradient(100% 100% at 100% 0, #ffd902 0, #ec821e 100%);  color: #ffffff;
   border-radius: 0.7rem;
   box-shadow: 0 .5ch .6ch rgba(0, 0, 0, 0.5), inset 0 -0.3rem 0 rgba(145, 47, 2, 0.9);
   cursor: pointer;

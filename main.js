@@ -33,9 +33,10 @@ document.addEventListener("DOMContentLoaded", () => {
             })
             .catch(err => console.error("Error decoding loop audio for", item.file, err));
         }
+
         btn.addEventListener('click', () => {
           if (item.type === "loop") {
-            // If the loop is playing, stop it and remove the animation and "active" class
+            // If the loop is playing, stop it and remove the infinite animation
             if (loopSources[item.file]) {
               loopSources[item.file].stop();
               loopSources[item.file] = null;
@@ -43,9 +44,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 const loopAnimClass = `animate-${item.special}-loop`;
                 btn.classList.remove(loopAnimClass);
               }
-              btn.classList.remove('active');
             } else {
-              // If not playing, start the loop, add the infinite animation class (if special), and mark it as active
+              // If not playing, start the loop and add the infinite animation class
               const buffer = loopBuffers[item.file];
               if (!buffer) {
                 console.error("Audio buffer not loaded yet for", item.file);
@@ -63,27 +63,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 const loopAnimClass = `animate-${item.special}-loop`;
                 btn.classList.add(loopAnimClass);
               }
-              btn.classList.add('active');
             }
           } else {
-            // For one-shot sounds, play the audio and add the "active" class
+            // For one-shot sounds, simply play the audio and trigger a one-time animation if special exists.
             const audio = new Audio(item.file);
             audio.play();
-            btn.classList.add('active');
             if (item.special) {
-              // Add the one-time animation class if special exists
               const animationClass = `animate-${item.special}`;
               btn.classList.add(animationClass);
               btn.addEventListener('animationend', function handler() {
                 btn.classList.remove(animationClass);
-                btn.classList.remove('active');
                 btn.removeEventListener('animationend', handler);
               });
-            } else {
-              // If no special animation is defined, remove "active" after a delay (adjust as needed)
-              setTimeout(() => {
-                btn.classList.remove('active');
-              }, 500);
             }
           }
         });
