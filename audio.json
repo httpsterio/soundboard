@@ -18,6 +18,7 @@
       "file": "audio/cats (speed).mp3",
       "type": "loop",
       "name": "Cats (Speed)",
+      "special": "cats-speed",
       "loopStart": 0.03,
       "loopEnd": 30.99
     },
@@ -25,6 +26,7 @@
       "file": "audio/distorted cat.mp3",
       "type": "loop",
       "name": "Distorted Cat",
+      "special": "distorted-cat",
       "loopStart": 0.53,
       "loopEnd": 11.78
     },
@@ -39,6 +41,52 @@
       "type": "oneshot",
       "name": "OOIIAA Slow",
       "special": "ooiiaa-slow"
+    },
+    {
+      "file": "audio/chipi.mp3",
+      "type": "loop",
+      "name": "Chipi Chapa",
+      "special": "chipi",
+      "loopStart": 0.02,
+      "loopEnd": 12.73
+    },
+    {
+      "file": "audio/interstellar.mp3",
+      "type": "loop",
+      "name": "Interstellar Cat",
+      "special": "interstellar",
+      "loopStart": 0.02,
+      "loopEnd": 27.36
+    },
+    {
+      "file": "audio/huh.mp3",
+      "type": "oneshot",
+      "name": "Huh?",
+      "special": "huh"
+    },
+    {
+      "file": "audio/tomodachi.mp3",
+      "type": "loop",
+      "name": "Tomodachi",
+      "special": "tomodachi",
+      "loopStart": 0.02,
+      "loopEnd": 17.47
+    },
+    {
+      "file": "audio/sadhamster.mp3",
+      "type": "loop",
+      "name": "Sad Hamster",
+      "special": "sadhamster",
+      "loopStart": 0.027,
+      "loopEnd": 19.371
+    },
+    {
+      "file": "audio/kbcat.mp3",
+      "type": "loop",
+      "name": "Keyboard Cat",
+      "special": "keyboard",
+      "loopStart": 0.027,
+      "loopEnd": 24.116
     }
   ]
 }

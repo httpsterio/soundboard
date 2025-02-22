@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
   // Cache for decoded buffers for looping audio and the current source nodes
-  const loopBuffers = {}; // key: file url, value: AudioBuffer
-  const loopSources = {}; // key: file url, value: currently playing source
+  const loopBuffers = {}; // key: file URL, value: AudioBuffer
+  const loopSources = {}; // key: file URL, value: currently playing AudioBufferSourceNode
 
   // Fetch our audio configuration JSON
   fetch('audio.json')
@@ -17,11 +17,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const btn = document.createElement('button');
         btn.textContent = item.name;
 
-
+        // If a "special" key exists, add that base class to the button
         if (item.special) {
           btn.classList.add(item.special);
         }
-
 
         // For loop items, preload the audio buffer
         if (item.type === "loop") {
@@ -36,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         btn.addEventListener('click', () => {
           if (item.type === "loop") {
-            // If the loop is playing, stop it and remove the infinite animation
+            // If the loop is playing, stop it and remove the infinite animation and pressed state
             if (loopSources[item.file]) {
               loopSources[item.file].stop();
               loopSources[item.file] = null;
@@ -44,8 +43,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 const loopAnimClass = `animate-${item.special}-loop`;
                 btn.classList.remove(loopAnimClass);
               }
+              btn.classList.remove("pressed");
             } else {
-              // If not playing, start the loop and add the infinite animation class
+              // If not playing, start the loop and add the infinite animation and pressed state
               const buffer = loopBuffers[item.file];
               if (!buffer) {
                 console.error("Audio buffer not loaded yet for", item.file);
@@ -63,11 +63,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 const loopAnimClass = `animate-${item.special}-loop`;
                 btn.classList.add(loopAnimClass);
               }
+              btn.classList.add("pressed");
             }
           } else {
-            // For one-shot sounds, simply play the audio and trigger a one-time animation if special exists.
+            // For one-shot sounds, play the audio and trigger a one-time animation if special exists.
             const audio = new Audio(item.file);
             audio.play();
+            // Add "pressed" class immediately
+            btn.classList.add("pressed");
+
             if (item.special) {
               const animationClass = `animate-${item.special}`;
               btn.classList.add(animationClass);
@@ -76,6 +80,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 btn.removeEventListener('animationend', handler);
               });
             }
+            // Remove the "pressed" class after 500ms for one-shots
+            setTimeout(() => {
+              btn.classList.remove("pressed");
+            }, 800);
           }
         });
 

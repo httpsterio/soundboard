@@ -19,6 +19,7 @@ body {
   background: #242424;
   margin: 0;
   touch-action: manipulation;
+  user-select: none;
 }
 
 * {
@@ -27,7 +28,7 @@ body {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
   gap: 1rem;
   max-width: 60rem;
   margin-inline: auto;
@@ -54,22 +55,24 @@ body {
   cursor: pointer;
 }
 
-.grid button:hover,
+/* .grid button:hover,
 .grid button:active,
 .grid button.active {
-  width: 100%;
   height:4rem;
-  box-sizing: border-box;
   margin-block-start: 1rem;
   padding-block-start: 0.5rem;
   padding-block-end: 0.7rem;
   padding-inline: 0.5rem;
-  text-shadow: 1px 1px 1px rgb(0, 0, 0);
-  border: 2px solid black;
+  background-image: radial-gradient(100% 100% at 100% 0, #0206ff 0, #ec821e 100%);  color: #ffffff;
+  box-shadow: 0 .1ch .2ch rgb(26, 26, 26), inset 0 -0.3rem 0 rgba(255, 255, 255, 0.9);
+} */
+
+button.pressed {
+  height:4rem;
+  margin-block-start: 1rem;
+  padding-block-end: 0.7rem;
   background-image: radial-gradient(100% 100% at 100% 0, #ffd902 0, #ec821e 100%);  color: #ffffff;
-  border-radius: 0.7rem;
   box-shadow: 0 .5ch .6ch rgba(0, 0, 0, 0.5), inset 0 -0.3rem 0 rgba(145, 47, 2, 0.9);
-  cursor: pointer;
 }
 
 /* animations */
@@ -85,7 +88,8 @@ body {
 }
 
 .animate-spin {
-  animation: spinButton 0.6s ease;
+  animation: 
+    spinButton 0.6s ease;
 }
 
 /* Maxwell animation */
@@ -103,13 +107,13 @@ body {
   0% {
     transform: rotate(30deg);
   }
-  25% {
-    transform: rotate(-30deg);
-  }
-  50% {
+  15% {
     transform: rotate(30deg);
   }
-  75% {
+  50% {
+    transform: rotate(-30deg);
+  }
+  65% {
     transform: rotate(-30deg);
   }
   100% {
@@ -120,5 +124,123 @@ body {
 .animate-maxwell-loop {
   animation: 
     maxwellStart 0.22s ease forwards,
-    maxwellLoop 1.79s 0.22s ease infinite;
+    maxwellLoop 0.895s 0.22s ease infinite;
+}
+
+/* Cats Speed animation */
+
+@keyframes catsSpeedStart {
+  from {
+    translate: 0 0;
+  }
+  to {
+    translate: 0 -1rem;
+  }
+}
+
+@keyframes catsSpeedLoop {
+  0% {
+    translate: 0 -1rem;
+  }
+  12% {
+    translate: 0 0rem;
+  }
+  50% {
+    translate: 0 -1rem;
+  }
+  62% {
+  translate: 0 0rem;
+  }
+  100% {
+    translate: 0 -1rem;
+  }
+}
+
+.animate-cats-speed-loop {
+  animation:
+    catsSpeedStart 0.48s ease forwards,
+    catsSpeedLoop 0.965s 0.48s ease infinite;
+}
+
+/* Distorted Cat */
+/* @keyframes distorted-cat {
+  from {
+    transform: rotateY(0);
+  }
+  to {
+    transform: rotateY(6turn);
+  }
+}
+
+.animate-distorted-cat-loop {
+  animation: distorted-cat 11.25s ease infinite;
+} */
+
+/* OOIIAA Fast */
+@keyframes ooiiaa-spin-fast {
+  from {
+    transform: rotateY(0);
+  }
+  to {
+    transform: rotateY(6turn);
+  }
+}
+
+.animate-ooiiaa-fast {
+  animation: ooiiaa-spin-fast 1.8s cubic-bezier(0.32, 0, 0.68, 1);
+}
+
+/* OOIIAA Fast */
+@keyframes ooiiaa-spin-slow {
+  from {
+    transform: rotateY(0);
+  }
+  to {
+    transform: rotateY(2turn);
+  }
+}
+
+.animate-ooiiaa-slow {
+  animation: ooiiaa-spin-slow 2.2s linear;
+}
+
+/* Chipi animation */
+
+@keyframes chipiStart {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-10deg);
+    translate: -1rem 0;
+  }
+}
+
+@keyframes chipiloop {
+  0% {
+    transform: rotate(-10deg);
+    translate: -1rem 0;
+  }
+  15% {
+    transform: rotate(-10deg);
+    translate: -1rem 0;
+  }
+  50% {
+    transform: rotate(10deg);
+    translate: 1rem 0;
+  }
+  65% {
+    transform: rotate(10deg);
+    translate: 1rem 0;
+  }
+  100% {
+    transform: rotate(-10deg);
+    translate: -1rem 0;
+  }
+}
+
+.animate-chipi-loop {
+  animation: 
+    chipiStart 0.20s ease forwards,
+    chipiloop 0.79s 0.20s ease infinite;
 }
