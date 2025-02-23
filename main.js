@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const audioItems = data.audio;
 
       audioItems.forEach(item => {
+        if (item.hidden) return;
         // Create a button for each audio item
         const btn = document.createElement('button');
         btn.textContent = item.name;
