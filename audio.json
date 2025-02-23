@@ -87,6 +87,36 @@
       "special": "keyboard",
       "loopStart": 0.027,
       "loopEnd": 24.116
+    },
+    {
+      "file": "audio/sunshine.mp3",
+      "type": "loop",
+      "name": "Sunshine",
+      "special": "sunshine",
+      "loopStart": 0.018,
+      "loopEnd": 8.117
+    },
+    {
+      "file": "audio/baobao.mp3",
+      "type": "loop",
+      "name": "Baobao",
+      "special": "baobao",
+      "loopStart": 0.021,
+      "loopEnd": 19.707
+    },
+    {
+      "file": "audio/dominique.mp3",
+      "type": "loop",
+      "name": "Dominique",
+      "special": "dominique",
+      "loopStart": 0.022,
+      "loopEnd": 16.588
+    },
+    {
+      "file": "audio/pingu.mp3",
+      "type": "oneshot",
+      "name": "Pingu",
+      "special": "pingu"
     }
   ]
 }
