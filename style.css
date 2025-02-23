@@ -15,6 +15,12 @@
         U+25CA;
 }
 
+html, body{
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
 body {
   background: #242424;
   margin: 0;
@@ -26,15 +32,33 @@ body {
   transition: all 0.2s;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+}
+
+footer {
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  font-family: "Supply";
+}
+
+footer a {
+
+  color: white;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
   gap: 1rem;
   max-width: 60rem;
-  margin-inline: auto;
-  padding-inline: 1rem;
-  margin-block-start: 2.5rem;
-  justify-items: center; /* centers items horizontally */
+  width: 100%;
+  margin: 2.5rem auto 0;
+  padding: 0 1rem;
 }
 
 .grid button {
